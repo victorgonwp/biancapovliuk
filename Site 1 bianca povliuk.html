@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Bianca Povliuk | Especialista em Cílios. Método ELO fio a fio em Botucatu — retenção superior. Agende pelo WhatsApp." />
+  <title>Bianca Povliuk | Especialista em Cílios</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-bg': '#FCF8F9',
+            'brand-dark': '#2A2123',
+            'brand-accent': '#CBA3A8',
+            'brand-muted': '#8A7A7C',
+            'whatsapp': '#25D366',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          backgroundImage: {
+            'hero-pattern': "linear-gradient(to bottom, rgba(252, 248, 249, 0.9), rgba(252, 248, 249, 1)), url('https://images.unsplash.com/photo-1512496015851-a1c8411d51a6?q=80&w=2070&auto=format&fit=crop')",
+            'dark-pattern': "linear-gradient(to right, rgba(42, 33, 35, 0.95), rgba(42, 33, 35, 0.85)), url('https://images.unsplash.com/photo-1587778082149-bd5b1bf5d3fa?q=80&w=2070&auto=format&fit=crop')"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FCF8F9;
+      color: #2A2123;
+      overflow-x: hidden;
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #2A2123;
+      letter-spacing: -0.02em;
+    }
+
+    .logo-wrap.is-fallback .logo-img { display: none; }
+    .logo-wrap.is-fallback .logo-fallback { display: flex; }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-in {
+      opacity: 0;
+      animation: fadeInSlow 1.5s ease-out forwards;
+    }
+    @keyframes fadeInSlow {
+      from { opacity: 0; transform: scale(0.98); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { animation-delay: 600ms; }
+    .delay-500 { animation-delay: 1000ms; }
+
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    .faq-icon {
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    details[open] .faq-icon {
+      transform: rotate(45deg);
+    }
+
+    .hairline {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(42,33,35,0.1), transparent);
+    }
+
+    .service-card img {
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .service-card:hover img {
+      transform: scale(1.04);
+    }
+
+    .hero-portrait-frame {
+      padding: 0.35rem;
+      background: #fffefb;
+      border: 1px solid rgba(42, 33, 35, 0.12);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.9) inset,
+        0 24px 48px -28px rgba(42, 33, 35, 0.28);
+    }
+
+    .hero-portrait-frame img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      object-fit: cover;
+      object-position: center 15%;
+    }
+
+    .retencao-portrait {
+      padding: 0.35rem;
+      background: #fffefb;
+      border: 1px solid rgba(42, 33, 35, 0.1);
+      box-shadow: 0 20px 50px -32px rgba(42, 33, 35, 0.22);
+    }
+
+    .retencao-portrait img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: center 12%;
+    }
+
+    .retencao-card {
+      background: rgba(255, 254, 251, 0.92);
+      border: 1px solid rgba(42, 33, 35, 0.08);
+      box-shadow: 0 16px 48px -36px rgba(42, 33, 35, 0.12);
+    }
+  </style>
+</head>
+<body class="antialiased font-sans selection:bg-brand-accent selection:text-brand-dark">
+
+  <script>
+    window.SITE_CONFIG = {
+      bookingUrl: 'https://bit.ly/bianca-povliuk',
+      whatsapp: '5514988378339',
+      instagram: 'https://instagram.com/biancapovliuk',
+      logo: 'Assets/Logo_Bianca_Povliuk__1_-removebg-preview.png',
+      portrait: 'Assets/WhatsApp Image 2026-05-18 at 17.57.55.jpeg',
+      methodName: 'ELO',
+      serviceImages: {
+        extensao: 'Assets/Extensão de cílios.jfif',
+        lifting: 'Assets/Lash Lifting.jfif'
+      },
+      serviceImagesFallback: {
+        extensao: 'https://images.unsplash.com/photo-1587778082149-bd5b1bf5d3fa?q=80&w=1200&auto=format&fit=crop',
+        lifting: 'https://images.unsplash.com/photo-1516975080669-ed673ba1c8bf?q=80&w=1200&auto=format&fit=crop'
+      }
+    };
+  </script>
+
+  <header class="fixed w-full top-0 z-50 bg-brand-bg/85 backdrop-blur-md border-b border-brand-dark/5 transition-shadow duration-500" id="navbar">
+    <div class="max-w-6xl mx-auto px-6 h-24 flex items-center justify-between">
+      <a href="#topo" class="block hover:opacity-80 transition-opacity fade-in" id="topo">
+        <div class="logo-wrap w-16 h-16 md:w-20 md:h-20 overflow-hidden flex justify-center items-center">
+          <img src="" alt="Bianca Povliuk Logo" class="logo-img w-full h-full object-contain" data-logo />
+          <span class="logo-fallback" aria-hidden="true">BP</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4 fade-in">
+        <a href="https://bit.ly/bianca-povliuk" data-wa target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-6 py-3 text-[0.65rem] md:text-xs uppercase tracking-[0.15em] font-medium bg-brand-dark text-brand-bg hover:bg-brand-muted transition-colors rounded-sm shadow-xl shadow-brand-dark/10">
+          Agendar
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <section class="relative h-screen flex flex-col items-center justify-center pt-20 bg-brand-bg overflow-hidden">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] bg-brand-accent/15 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="relative z-10 text-center px-6 fade-in">
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[7rem] text-brand-dark mb-4 tracking-tight leading-none">
+        Bianca Povliuk
+      </h1>
+      <p class="text-[0.65rem] md:text-sm uppercase tracking-[0.4em] text-brand-muted font-medium ml-1">
+        Especialista em Cílios
+      </p>
+    </div>
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 fade-in delay-500 opacity-0">
+      <span class="text-[0.55rem] uppercase tracking-widest text-brand-muted/70">Descubra</span>
+      <div class="w-px h-16 bg-gradient-to-b from-brand-muted/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <section id="retencao" class="relative py-24 md:py-32 bg-brand-bg border-t border-brand-dark/5 overflow-hidden">
+    <div class="absolute top-0 right-0 w-[min(50vw,420px)] h-[min(50vw,420px)] bg-brand-accent/10 rounded-full blur-[100px] pointer-events-none translate-x-1/4 -translate-y-1/4"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10 flex flex-col gap-12 md:gap-14">
+
+      <div class="grid md:grid-cols-12 gap-10 lg:gap-12 items-center">
+        <div class="md:col-span-7 reveal-up order-1">
+          <h2 class="text-4xl md:text-5xl lg:text-[4rem] font-serif text-brand-dark leading-[1.1] mb-8">
+            Extensão com <em class="italic text-brand-muted font-light">retenção</em> que impressiona.
+          </h2>
+          <p class="text-lg md:text-xl text-brand-muted font-light max-w-lg leading-relaxed">
+            O método ELO foi desenvolvido para clientes que buscam naturalidade e durabilidade. Retornos com intervalos muito maiores do que o comum.
+          </p>
+        </div>
+
+        <div class="md:col-span-5 reveal-up delay-100 order-2 flex justify-center md:justify-end">
+          <figure class="retencao-portrait w-full max-w-[14rem] sm:max-w-[15rem] md:max-w-[17rem] lg:max-w-[18rem] m-0">
+            <img
+              data-portrait
+              src=""
+              alt="Bianca Povliuk — especialista em cílios"
+              width="360"
+              height="450"
+            />
+          </figure>
+        </div>
+      </div>
+
+      <div class="retencao-card reveal-up delay-200 rounded-sm p-8 md:p-10 lg:p-12">
+        <div class="grid md:grid-cols-12 gap-8 md:gap-10 items-start">
+          <div class="md:col-span-5 lg:col-span-4">
+            <span class="text-[0.65rem] uppercase tracking-widest text-brand-dark font-semibold bg-brand-accent/20 px-3 py-1 inline-block mb-4 rounded-full">Para novas clientes</span>
+            <h3 class="font-serif text-2xl md:text-[1.75rem] text-brand-dark leading-tight">Por que a retenção importa?</h3>
+          </div>
+          <div class="md:col-span-7 lg:col-span-8">
+            <ul class="space-y-5 md:space-y-4">
+              <li class="flex items-start gap-4">
+                <span class="text-brand-accent mt-1 shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <p class="text-sm text-brand-muted leading-relaxed">Mapeamento e curvatura pensados exclusivamente para o seu formato de olho.</p>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="text-brand-accent mt-1 shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <p class="text-sm text-brand-muted leading-relaxed">Isolamento e peso responsáveis, garantindo a saúde total dos seus cílios naturais.</p>
+              </li>
+              <li class="flex items-start gap-4">
+                <span class="text-brand-accent mt-1 shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7"></path></svg>
+                </span>
+                <p class="text-sm text-brand-muted leading-relaxed">Orientação completa de home care para prolongar o resultado por semanas.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-brand-dark/10 flex flex-wrap justify-between items-end gap-6">
+          <div>
+            <p class="font-serif text-4xl text-brand-dark">30-60<span class="text-xl text-brand-muted italic font-light">dias</span></p>
+            <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted mt-2">Média de retorno</p>
+          </div>
+          <div class="text-right">
+            <p class="font-serif text-2xl text-brand-dark italic">ELO</p>
+            <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted mt-2">Método Próprio</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal-up delay-300 flex justify-center pt-2">
+        <a href="#" data-wa target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-xs uppercase tracking-[0.15em] font-medium bg-brand-dark text-brand-bg hover:bg-brand-muted transition-colors duration-300 rounded-sm shadow-xl shadow-brand-dark/10">
+          Falar com Bianca
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="metodo" class="py-24 md:py-32 relative">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center max-w-3xl mx-auto mb-24 reveal-up">
+        <h2 class="font-serif text-4xl md:text-[3.5rem] text-brand-dark mb-6 leading-tight">A arte por trás do <br><span class="italic text-brand-muted font-light">ELO fio a fio</span></h2>
+        <p class="text-brand-muted leading-relaxed text-lg font-light">
+          Não é apenas sobre "colar fios". É um encadeamento rigoroso de detalhes — da preparação do fio natural ao acabamento perfeito — pensado para durabilidade sem peso exagerado.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-x-8 gap-y-16">
+        <div class="reveal-up group">
+          <div class="h-px w-full bg-brand-dark/10 mb-8 group-hover:bg-brand-accent transition-colors duration-700"></div>
+          <span class="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-brand-accent block mb-4">Técnica</span>
+          <h3 class="font-serif text-2xl text-brand-dark mb-4">Precisão no Isolamento</h3>
+          <p class="text-brand-muted text-sm leading-relaxed font-light">
+            Cada extensão é acoplada individualmente onde deve estar, reduzindo torque, desconforto e prevenindo a queda precoce dos fios.
+          </p>
+        </div>
+        <div class="reveal-up delay-100 group">
+          <div class="h-px w-full bg-brand-dark/10 mb-8 group-hover:bg-brand-accent transition-colors duration-700"></div>
+          <span class="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-brand-accent block mb-4">Protocolo</span>
+          <h3 class="font-serif text-2xl text-brand-dark mb-4">Estabilidade Ambiental</h3>
+          <p class="text-brand-muted text-sm leading-relaxed font-light">
+            Rigoroso controle de umidade e temperatura, aliados a passos de limpeza química profunda que sustentam a nossa famosa curva de retenção.
+          </p>
+        </div>
+        <div class="reveal-up delay-200 group">
+          <div class="h-px w-full bg-brand-dark/10 mb-8 group-hover:bg-brand-accent transition-colors duration-700"></div>
+          <span class="text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-brand-accent block mb-4">Estética</span>
+          <h3 class="font-serif text-2xl text-brand-dark mb-4">Naturalidade Premium</h3>
+          <p class="text-brand-muted text-sm leading-relaxed font-light">
+            Desenho de linhas limpas, simetria impecável e conforto absoluto. O resultado de um estúdio de alto padrão, sem o "efeito artificial".
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="servicos" class="py-24 md:py-32 bg-white shadow-[0_0_50px_rgba(42,33,35,0.02)]">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center max-w-2xl mx-auto mb-20 reveal-up">
+        <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6">Menu de <span class="italic text-brand-muted">Serviços</span></h2>
+        <p class="text-brand-muted font-light">Especialidades desenhadas para realçar a sua beleza natural. Valores e disponibilidades são fornecidos via WhatsApp.</p>
+      </div>
+
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+
+        <article class="service-card reveal-up flex flex-col bg-brand-bg/50 border border-brand-dark/5 hover:border-brand-accent/50 transition-colors duration-500 rounded-sm overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden bg-brand-accent/10">
+            <img data-service-img="extensao" src="" alt="Extensão de cílios" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col flex-grow p-8 md:p-9">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-accent block mb-4">Assinatura visual</span>
+            <h3 class="font-serif text-[1.65rem] text-brand-dark mb-3">Cílios</h3>
+            <p class="text-brand-muted text-sm font-light leading-relaxed mb-8 flex-grow">
+              Estilos e linhas desenhadas conforme a avaliação do seu rosto: do natural ao intenso, sempre priorizando a saúde dos seus fios reais.
+            </p>
+            <a href="#" data-wa target="_blank" rel="noopener noreferrer" class="block w-full text-center py-4 text-xs uppercase tracking-widest font-medium bg-white border border-brand-dark/10 text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 rounded-sm">
+              Agendar este serviço
+            </a>
+          </div>
+        </article>
+
+        <article class="service-card reveal-up delay-100 flex flex-col bg-brand-bg/50 border border-brand-dark/5 hover:border-brand-accent/50 transition-colors duration-500 rounded-sm overflow-hidden">
+          <div class="aspect-[4/5] overflow-hidden bg-brand-accent/10">
+            <img data-service-img="lifting" src="" alt="Resultado de Lash Lifting" class="w-full h-full object-cover" loading="lazy" />
+          </div>
+          <div class="flex flex-col flex-grow p-8 md:p-9">
+            <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-accent block mb-4">Elevação</span>
+            <h3 class="font-serif text-[1.65rem] text-brand-dark mb-3">Lash Lifting</h3>
+            <p class="text-brand-muted text-sm font-light leading-relaxed mb-8 flex-grow">
+              Curvatura, nutrição e definição dos seus cílios naturais. Ideal para quem não deseja extensão no dia a dia, mas quer um olhar mais aberto.
+            </p>
+            <a href="#" data-wa target="_blank" rel="noopener noreferrer" class="block w-full text-center py-4 text-xs uppercase tracking-widest font-medium bg-white border border-brand-dark/10 text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 rounded-sm">
+              Agendar este serviço
+            </a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section id="profissionais" class="py-24 md:py-32 bg-brand-bg border-t border-brand-dark/5">
+    <div class="max-w-6xl mx-auto px-6">
+
+      <div class="text-center max-w-2xl mx-auto mb-16 reveal-up">
+        <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6 leading-tight">Para <span class="italic text-brand-muted font-light">profissionais</span></h2>
+        <p class="text-brand-muted font-light text-lg leading-relaxed">
+          Lash designers que querem aprender o método ELO e elevar a retenção dos trabalhos. Trilha em etapas ou imersão presencial — conforme o seu momento.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <article class="reveal-up bg-white border border-brand-dark/5 p-10 md:p-12 rounded-sm shadow-[0_12px_40px_-20px_rgba(42,33,35,0.08)] flex flex-col">
+          <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-accent block mb-4">Online</span>
+          <h3 class="font-serif text-2xl text-brand-dark mb-4">Formação ELO</h3>
+          <p class="text-brand-muted text-sm font-light leading-relaxed mb-10 flex-grow">
+            Trilha completa: fundamentos + upgrade avançado do protocolo de retenção. Ideal para quem quer começar do jeito certo ou recalibrar a base antes do método.
+          </p>
+          <a href="#" data-wa data-wa-text="Olá Bianca, quero saber sobre a formação ELO." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full py-4 text-xs uppercase tracking-widest font-medium bg-brand-dark text-brand-bg hover:bg-brand-muted transition-colors rounded-sm">
+            Entrar na lista de espera
+          </a>
+        </article>
+
+        <article class="reveal-up delay-100 bg-white border border-brand-dark/5 p-10 md:p-12 rounded-sm shadow-[0_12px_40px_-20px_rgba(42,33,35,0.08)] flex flex-col">
+          <span class="text-[0.65rem] font-bold uppercase tracking-widest text-brand-accent block mb-4">Presencial · 2 dias</span>
+          <h3 class="font-serif text-2xl text-brand-dark mb-4">Mentoria ELO</h3>
+          <p class="text-brand-muted text-sm font-light leading-relaxed mb-10 flex-grow">
+            Imersão com teoria e prática supervisionada. Vagas limitadas. Podemos combinar em Botucatu ou na sua cidade.
+          </p>
+          <a href="#" data-wa data-wa-text="Olá Bianca, quero saber sobre a mentoria presencial." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center w-full py-4 text-xs uppercase tracking-widest font-medium border border-brand-dark/15 text-brand-dark hover:bg-brand-dark hover:text-brand-bg transition-colors rounded-sm">
+            Solicitar proposta
+          </a>
+        </article>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="faq" class="py-24 bg-brand-bg">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Dúvidas Frequentes</h2>
+        <p class="text-brand-muted font-light">Tudo o que você precisa saber antes de agendar.</p>
+      </div>
+
+      <div class="space-y-4 reveal-up">
+        <details class="group bg-white p-6 border border-brand-dark/5 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Quanto tempo dura o resultado?
+            <span class="faq-icon text-brand-muted text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            Depende do ciclo natural dos seus cílios, dos cuidados em casa e do estilo escolhido. A imensa maioria das nossas clientes retornam em torno de 30 a 60 dias, sempre após uma avaliação honesta no momento do agendamento.
+          </div>
+        </details>
+
+        <details class="group bg-white p-6 border border-brand-dark/5 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Atende quem nunca fez extensão?
+            <span class="faq-icon text-brand-muted text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            Com certeza. O método ELO é perfeito para iniciantes. Na nossa primeira conversa, explicamos todo o processo, o tempo de sessão, como funciona a manutenção e o que esperar nos primeiros dias de adaptação.
+          </div>
+        </details>
+
+        <details class="group bg-white p-6 border border-brand-dark/5 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Profissionais: Posso comprar só o módulo avançado?
+            <span class="faq-icon text-brand-muted text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            A trilha foi desenhada rigorosamente para garantir o alinhamento técnico antes de aplicar o protocolo avançado. Se você já tem muita experiência, podemos agendar uma conversa para analisar um encaixe, sem comprometer a qualidade do ensino.
+          </div>
+        </details>
+
+        <details class="group bg-white p-6 border border-brand-dark/5 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Como funciona a política de agendamento?
+            <span class="faq-icon text-brand-muted text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            Para garantir a organização da agenda e o respeito ao tempo de todas, a confirmação de horário exige um sinal via Pix (o valor exato é informado no WhatsApp). A política de cancelamento completa é enviada antes de finalizarmos o agendamento.
+          </div>
+        </details>
+      </div>
+
+      <div class="text-center mt-16 reveal-up">
+        <a href="#" data-wa target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-xs uppercase tracking-[0.15em] font-medium bg-brand-dark text-brand-bg hover:bg-brand-muted transition-colors rounded-sm shadow-xl shadow-brand-dark/10">
+          Tirar outras dúvidas no WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="bg-brand-bg pt-20 pb-10 border-t border-brand-dark/10">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+      <div class="flex flex-col items-center mb-12">
+        <div class="logo-wrap w-24 h-24 md:w-28 md:h-28 overflow-hidden flex justify-center items-center mb-6">
+          <img src="" alt="Bianca Povliuk Logo" class="logo-img w-full h-full object-contain opacity-90" data-logo />
+          <span class="logo-fallback" aria-hidden="true">BP</span>
+        </div>
+        <p class="text-brand-muted font-light text-sm max-w-sm leading-relaxed mx-auto">
+          Especialista em olhar e retenção superior. Elevando a autoestima feminina com naturalidade.
+        </p>
+      </div>
+
+      <div class="flex justify-center gap-8 mb-12">
+        <a href="#" data-ig target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-brand-dark hover:text-brand-accent transition-colors">Instagram</a>
+        <a href="#" data-wa target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-brand-dark hover:text-brand-accent transition-colors">WhatsApp</a>
+      </div>
+
+      <div class="hairline w-full mb-8 max-w-sm mx-auto"></div>
+
+      <p class="text-[0.65rem] font-light text-brand-muted uppercase tracking-widest">
+        © <span id="current-year"></span> Bianca Povliuk. Botucatu, SP.
+      </p>
+
+    </div>
+  </footer>
+
+  <div class="fixed bottom-0 left-0 right-0 z-50 md:hidden flex gap-2 p-3 bg-brand-bg/95 backdrop-blur-md border-t border-brand-dark/10 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+    <a href="#servicos" class="flex-1 text-center py-3 text-[0.65rem] uppercase tracking-widest font-medium border border-brand-dark/10 text-brand-dark rounded-sm">Serviços</a>
+    <a href="#" data-wa class="flex-1 text-center py-3 text-[0.65rem] uppercase tracking-widest font-medium bg-whatsapp text-white rounded-sm">WhatsApp</a>
+  </div>
+
+  <script>
+    const cfg = window.SITE_CONFIG;
+
+    function applyMethodName() {
+      var name = cfg.methodName;
+      if (!name) return;
+      function walk(node) {
+        if (node.nodeType === 3) {
+          node.textContent = node.textContent.replace(/\bELO\b/g, name);
+        } else if (node.nodeType === 1 && node.tagName !== 'SCRIPT' && node.tagName !== 'STYLE') {
+          Array.prototype.forEach.call(node.childNodes, walk);
+        }
+      }
+      walk(document.body);
+      document.querySelectorAll('[data-wa-text]').forEach(function (el) {
+        var t = el.getAttribute('data-wa-text');
+        if (t) el.setAttribute('data-wa-text', t.replace(/\bELO\b/g, name));
+      });
+      var desc = document.querySelector('meta[name="description"]');
+      if (desc && desc.content) desc.content = desc.content.replace(/\bELO\b/g, name);
+    }
+
+    applyMethodName();
+
+    document.querySelectorAll('[data-wa]').forEach(function (el) {
+      var text = el.getAttribute('data-wa-text');
+      if (text && cfg.whatsapp) {
+        el.href = 'https://wa.me/' + cfg.whatsapp + '?text=' + encodeURIComponent(text);
+      } else {
+        el.href = cfg.bookingUrl;
+      }
+    });
+
+    document.querySelectorAll('[data-ig]').forEach(function (el) {
+      el.href = cfg.instagram;
+    });
+
+
+    document.querySelectorAll('[data-service-img]').forEach(function (img) {
+      var key = img.getAttribute('data-service-img');
+      var local = cfg.serviceImages[key];
+      var fallback = cfg.serviceImagesFallback[key];
+      img.src = local;
+      img.onerror = function () {
+        if (img.dataset.fallbackApplied) return;
+        img.dataset.fallbackApplied = '1';
+        img.src = fallback;
+      };
+    });
+
+    document.querySelectorAll('[data-logo]').forEach(function (img) {
+      img.src = cfg.logo;
+      img.addEventListener('error', function () {
+        var wrap = img.closest('.logo-wrap');
+        if (wrap) wrap.classList.add('is-fallback');
+      });
+    });
+
+    document.querySelectorAll('[data-portrait]').forEach(function (img) {
+      if (cfg.portrait) img.src = cfg.portrait;
+    });
+
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-sm');
+      } else {
+        navbar.classList.remove('shadow-sm');
+      }
+    });
+
+    const revealElements = document.querySelectorAll('.reveal-up');
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+
+    revealElements.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>

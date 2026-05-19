@@ -71,7 +71,7 @@
       name: 'Bianca Povliuk',
       tagline: 'Especialista em Cílios',
       logo: 'Assets/Logo_Bianca_Povliuk__1_-removebg-preview.png',
-      siteUrl: 'metodo.html',
+      siteUrl: 'Site 2 bianca povliuk.html',
       whatsapp: '5514988378339',
       whatsappText: 'Olá Bianca! Vim pelos seus links e gostaria de falar com você.',
       instagram: 'https://instagram.com/biancapovliuk',
@@ -137,7 +137,8 @@
           var msg = cfg.whatsappText || '';
           a.href = 'https://wa.me/' + cfg.whatsapp + (msg ? '?text=' + encodeURIComponent(msg) : '');
         } else {
-          a.href = item.href || cfg[item.hrefKey] || '#';
+          var path = item.href || cfg[item.hrefKey] || '#';
+          a.href = path.indexOf('://') === -1 ? encodeURI(path) : path;
         }
         if (item.sameTab) {
           a.target = '_self';
