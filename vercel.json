@@ -3,6 +3,14 @@
     {
       "source": "/",
       "destination": "/Links.html"
+    },
+    {
+      "source": "/metodo",
+      "destination": "/Site 2 bianca povliuk.html"
+    },
+    {
+      "source": "/metodo.html",
+      "destination": "/Site 2 bianca povliuk.html"
     }
   ]
 }
