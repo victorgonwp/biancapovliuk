@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Links oficiais — Bianca Povliuk. Método ELO, WhatsApp e Instagram." />
+  <title>Bianca Povliuk | Links</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-bg': '#FCF8F9',
+            'brand-dark': '#2A2123',
+            'brand-accent': '#CBA3A8',
+            'brand-muted': '#8A7A7C',
+            'whatsapp': '#25D366',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    body {
+      background-color: #FCF8F9;
+      color: #2A2123;
+      min-height: 100dvh;
+    }
+
+    .link-btn {
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+    }
+    .link-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 32px -16px rgba(42, 33, 35, 0.2);
+    }
+    .link-btn:active {
+      transform: translateY(0);
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.5rem;
+      color: #2A2123;
+    }
+    .logo-wrap.is-fallback .logo-img { display: none; }
+    .logo-wrap.is-fallback .logo-fallback { display: flex; }
+  </style>
+</head>
+<body class="antialiased font-sans selection:bg-brand-accent selection:text-brand-dark">
+
+  <script>
+    window.LINKS_CONFIG = {
+      name: 'Bianca Povliuk',
+      tagline: 'Especialista em Cílios',
+      logo: 'Assets/Logo_Bianca_Povliuk__1_-removebg-preview.png',
+      siteUrl: 'metodo.html',
+      whatsapp: '5514988378339',
+      whatsappText: 'Olá Bianca! Vim pelos seus links e gostaria de falar com você.',
+      instagram: 'https://instagram.com/biancapovliuk',
+      links: [
+        {
+          label: 'Conheça o Método ELO',
+          description: 'Formação e mentoria para lash designers',
+          hrefKey: 'siteUrl',
+          style: 'primary',
+          sameTab: true,
+        },
+        {
+          label: 'Falar no Whatsapp',
+          description: 'Agendamentos, serviços e dúvidas',
+          hrefKey: 'whatsapp',
+          style: 'whatsapp',
+        },
+        {
+          label: 'Instagram',
+          description: '@biancapovliuk',
+          hrefKey: 'instagram',
+          style: 'outline',
+        },
+      ]
+    };
+  </script>
+
+  <main class="relative min-h-dvh flex flex-col items-center px-6 py-14">
+    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[min(100vw,480px)] h-64 bg-brand-accent/15 rounded-full blur-[80px] pointer-events-none"></div>
+
+    <div class="relative z-10 w-full max-w-md flex flex-col items-center">
+      <div class="logo-wrap w-24 h-24 mb-6 overflow-hidden flex justify-center items-center" id="logo-wrap">
+        <img src="" alt="" class="logo-img w-full h-full object-contain" id="logo-img" width="96" height="96" />
+        <span class="logo-fallback" aria-hidden="true">BP</span>
+      </div>
+
+      <h1 class="font-serif text-3xl text-brand-dark text-center leading-tight mb-2" id="profile-name">Bianca Povliuk</h1>
+      <p class="text-sm text-brand-muted font-light text-center tracking-wide mb-10" id="profile-tagline">Especialista em Cílios</p>
+
+      <nav class="w-full flex flex-col gap-3" id="links-nav" aria-label="Links principais"></nav>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var cfg = window.LINKS_CONFIG;
+      var logoImg = document.getElementById('logo-img');
+      var logoWrap = document.getElementById('logo-wrap');
+
+      document.getElementById('profile-name').textContent = cfg.name;
+      document.getElementById('profile-tagline').textContent = cfg.tagline;
+      logoImg.src = cfg.logo;
+      logoImg.alt = cfg.name + ' — logo';
+      logoImg.onerror = function () {
+        logoWrap.classList.add('is-fallback');
+      };
+
+      var nav = document.getElementById('links-nav');
+
+      cfg.links.forEach(function (item) {
+        var a = document.createElement('a');
+        if (item.hrefKey === 'whatsapp' && cfg.whatsapp) {
+          var msg = cfg.whatsappText || '';
+          a.href = 'https://wa.me/' + cfg.whatsapp + (msg ? '?text=' + encodeURIComponent(msg) : '');
+        } else {
+          a.href = item.href || cfg[item.hrefKey] || '#';
+        }
+        if (item.sameTab) {
+          a.target = '_self';
+        } else {
+          a.target = '_blank';
+          a.rel = 'noopener noreferrer';
+        }
+        a.className = 'link-btn w-full rounded-sm border text-center px-6 py-4 block';
+
+        if (item.style === 'whatsapp') {
+          a.className += ' bg-whatsapp border-whatsapp text-white hover:brightness-105';
+        } else if (item.style === 'primary') {
+          a.className += ' bg-brand-dark border-brand-dark text-brand-bg hover:bg-brand-muted hover:border-brand-muted';
+        } else {
+          a.className += ' bg-white/80 border-brand-dark/10 text-brand-dark hover:border-brand-accent/60 hover:bg-white';
+        }
+
+        var label = document.createElement('span');
+        label.className = 'block text-xs uppercase tracking-[0.14em] font-medium';
+        label.textContent = item.label;
+
+        var desc = document.createElement('span');
+        desc.className = 'block text-[0.7rem] font-light mt-1 opacity-80 normal-case tracking-normal';
+        desc.textContent = item.description || '';
+
+        a.appendChild(label);
+        if (item.description) a.appendChild(desc);
+        nav.appendChild(a);
+      });
+    })();
+  </script>
+</body>
+</html>

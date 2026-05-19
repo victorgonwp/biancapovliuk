@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Aprenda o Método ELO com Bianca Povliuk. A formação definitiva para Lash Designers que buscam retenção superior e agenda cheia." />
+  <title>Método ELO | Bianca Povliuk - Mentoria para Lash Designers</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            'brand-bg': '#FCF8F9', /* Rosa MUITO suave / Off-white rosado */
+            'brand-nude': '#F9F0F2', /* Nude / Blush para seções de destaque */
+            'brand-dark': '#382D2F', /* Marrom/Chumbo escuro (mais suave que o preto) */
+            'brand-accent': '#C28C94', /* Rosa antigo/feminino vibrante */
+            'brand-muted': '#8A7A7C', /* Cinza rosado para textos secundários */
+            'whatsapp': '#25D366',
+          },
+          fontFamily: {
+            sans: ['Montserrat', 'sans-serif'],
+            serif: ['Playfair Display', 'serif'],
+          },
+          backgroundImage: {
+            /* Fundo limpo apenas com um leve brilho radial, sem imagens de banco */
+            'hero-pattern': "radial-gradient(circle at top center, rgba(255, 255, 255, 0.9) 0%, rgba(252, 248, 249, 0) 70%)"
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #FCF8F9;
+      color: #382D2F;
+      overflow-x: hidden;
+    }
+
+    .logo-fallback {
+      display: none;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 1.25rem;
+      color: #382D2F; 
+      letter-spacing: -0.02em;
+    }
+
+    .logo-wrap.is-fallback .logo-img { display: none; }
+    .logo-wrap.is-fallback .logo-fallback { display: flex; }
+
+    .reveal-up {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 1s ease-out, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .delay-100 { transition-delay: 100ms; }
+    .delay-200 { transition-delay: 200ms; }
+    .delay-300 { transition-delay: 300ms; }
+
+    details > summary { list-style: none; }
+    details > summary::-webkit-details-marker { display: none; }
+    .faq-icon { transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+    details[open] .faq-icon { transform: rotate(45deg); }
+
+    .hairline {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(194, 140, 148, 0.2), transparent);
+    }
+
+    /* Estilo para a imagem da Bianca */
+    .portrait-frame {
+      position: relative;
+      padding: 0.5rem;
+      background: #fff;
+      box-shadow: 0 20px 50px -20px rgba(194, 140, 148, 0.25);
+      z-index: 10;
+    }
+    
+    .portrait-frame::before {
+      content: '';
+      position: absolute;
+      top: 15px;
+      left: -15px;
+      right: 15px;
+      bottom: -15px;
+      border: 1px solid #C28C94;
+      z-index: -1;
+      transition: all 0.3s ease;
+    }
+
+    .portrait-frame img {
+      width: 100%;
+      height: auto;
+      aspect-ratio: 4/5;
+      object-fit: cover;
+      display: block;
+    }
+  </style>
+</head>
+<body class="antialiased font-sans selection:bg-brand-accent selection:text-white">
+
+  <script>
+    window.SITE_CONFIG = {
+      bookingUrl: 'https://bit.ly/bianca-povliuk',
+      whatsapp: '5514988378339',
+      instagram: 'https://instagram.com/biancapovliuk',
+      logo: 'Assets/Logo_Bianca_Povliuk__1_-removebg-preview.png',
+      portrait: 'Assets/WhatsApp Image 2026-05-18 at 17.57.55.jpeg',
+    };
+  </script>
+
+  <!-- Header Focado em Conversão (Claro e Delicado) -->
+  <header class="fixed w-full top-0 z-50 bg-brand-bg/90 backdrop-blur-md border-b border-brand-accent/10 transition-shadow duration-500" id="navbar">
+    <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#topo" class="block hover:opacity-80 transition-opacity" id="topo">
+        <!-- Logo com mix-blend-multiply para fundir o branco do PNG com o fundo rosa claro -->
+        <div class="logo-wrap w-14 h-14 overflow-hidden flex justify-center items-center mix-blend-multiply">
+          <img src="" alt="Bianca Povliuk Logo" class="logo-img w-full h-full object-contain opacity-90" data-logo />
+          <span class="logo-fallback" aria-hidden="true">BP</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-4">
+        <!-- Novo Botão de CTA no topo -->
+        <a href="#cursos" class="inline-flex items-center justify-center px-6 py-2.5 text-[0.65rem] md:text-xs uppercase tracking-[0.15em] font-medium border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors rounded-sm shadow-sm">
+          Quero ser Aluna
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- NOVO INTRO / CAPA (Minimalista e Elegante) -->
+  <section class="relative h-screen flex flex-col items-center justify-center pt-20 bg-brand-bg overflow-hidden border-b border-brand-accent/10">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] md:w-[600px] md:h-[600px] bg-white/80 rounded-full blur-[100px] pointer-events-none"></div>
+    
+    <div class="relative z-10 text-center px-6 reveal-up active">
+      <h1 class="font-serif text-5xl md:text-7xl lg:text-[7rem] text-brand-dark mb-4 tracking-tight leading-none">
+        Bianca Povliuk
+      </h1>
+      <p class="text-[0.65rem] md:text-sm uppercase tracking-[0.4em] text-brand-muted font-medium ml-1">
+        Especialista em Cílios
+      </p>
+    </div>
+
+    <!-- Indicador de Scroll -->
+    <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 reveal-up delay-200">
+      <span class="text-[0.55rem] uppercase tracking-widest text-brand-muted/70">Descubra</span>
+      <div class="w-px h-16 bg-gradient-to-b from-brand-muted/50 to-transparent"></div>
+    </div>
+  </section>
+
+  <!-- HERO: A Promessa Forte (Nova Formatação Elegante) -->
+  <section class="relative pt-24 pb-20 md:pt-32 md:pb-32 bg-brand-bg text-brand-dark bg-hero-pattern overflow-hidden">
+    <div class="max-w-4xl mx-auto px-6 relative z-10 text-center flex flex-col items-center">
+      
+      <span class="inline-block py-1 px-4 border border-brand-accent/30 text-[0.65rem] uppercase tracking-widest text-brand-accent mb-8 rounded-full bg-white/50 backdrop-blur-sm reveal-up shadow-sm">
+        Para Lash Designers
+      </span>
+      
+      <h2 class="text-4xl md:text-5xl lg:text-[4.5rem] font-serif leading-[1.1] mb-10 reveal-up delay-100 text-brand-dark">
+        O segredo da <em class="italic text-brand-accent font-light">retenção de 30 a 60 dias</em> sem pesar no fio natural.
+      </h2>
+      
+      <!-- Detalhe visual elegante separando os textos -->
+      <div class="w-16 h-px bg-brand-accent/30 mx-auto mb-8 reveal-up delay-200"></div>
+      
+      <h3 class="font-serif text-2xl md:text-3xl text-brand-dark mb-4 reveal-up delay-200">
+        Aprenda o Método ELO
+      </h3>
+      
+      <p class="text-brand-dark/70 font-light text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-10 reveal-up delay-200">
+        Domine a técnica definitiva que vai acabar com o seu medo de quedas prematuras, lotar a sua agenda e te permitir cobrar o valor de uma verdadeira especialista na sua cidade.
+      </p>
+      
+      <div class="reveal-up delay-300">
+        <a href="#cursos" class="inline-flex items-center justify-center px-10 py-4 text-xs md:text-sm uppercase tracking-[0.15em] font-bold bg-brand-accent text-white hover:bg-brand-dark transition-all duration-300 rounded-sm shadow-xl shadow-brand-accent/30">
+          Quero Aprender o Método
+        </a>
+      </div>
+      
+    </div>
+  </section>
+
+  <!-- A DOR: Por que a Lash precisa disso? -->
+  <section class="py-24 bg-white border-b border-brand-accent/10">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 reveal-up">
+        <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-6">Você se identifica com essas situações?</h2>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-brand-bg p-8 rounded-sm border border-brand-accent/10 shadow-sm reveal-up hover:border-brand-accent/40 transition-colors">
+          <svg class="w-8 h-8 text-brand-accent mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <h3 class="font-serif text-xl text-brand-dark mb-3">Medo da mensagem</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Acordar com receio de abrir o WhatsApp e ver a cliente reclamando que "caiu tudo" no terceiro dia.
+          </p>
+        </div>
+        
+        <div class="bg-brand-bg p-8 rounded-sm border border-brand-accent/10 shadow-sm reveal-up delay-100 hover:border-brand-accent/40 transition-colors">
+          <svg class="w-8 h-8 text-brand-accent mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+          <h3 class="font-serif text-xl text-brand-dark mb-3">Horas na maca</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Demorar mais de 3 horas para finalizar um set, o que te impede de atender mais clientes e faturar mais.
+          </p>
+        </div>
+
+        <div class="bg-brand-bg p-8 rounded-sm border border-brand-accent/10 shadow-sm reveal-up delay-200 hover:border-brand-accent/40 transition-colors">
+          <svg class="w-8 h-8 text-brand-accent mb-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"></path></svg>
+          <h3 class="font-serif text-xl text-brand-dark mb-3">Concorrência por Preço</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Perder clientes para a "Lash da esquina" que cobra mais barato, porque o seu trabalho ainda não é visto como Premium.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORYTELLING BIANCA (A Jornada / Solução) -->
+  <section class="py-24 md:py-32 bg-brand-bg relative overflow-hidden">
+    <div class="max-w-6xl mx-auto px-6 relative z-10 grid md:grid-cols-12 gap-12 items-center">
+      
+      <div class="md:col-span-5 reveal-up order-2 md:order-1">
+        <div class="portrait-frame max-w-[320px] mx-auto md:mx-0">
+          <img data-portrait src="" alt="Bianca Povliuk" />
+        </div>
+      </div>
+
+      <div class="md:col-span-7 reveal-up delay-100 order-1 md:order-2">
+        <span class="text-[0.65rem] uppercase tracking-widest text-brand-accent font-bold mb-4 block">A criadora do Método</span>
+        <h2 class="font-serif text-4xl md:text-5xl text-brand-dark mb-6 leading-tight">
+          Eu passei pelas mesmas frustrações que você.
+        </h2>
+        
+        <div class="space-y-5 text-brand-muted leading-relaxed font-light">
+          <p>
+            Eu sou a <strong>Bianca Povliuk</strong>. Mas nem sempre minha agenda foi lotada e meu trabalho, valorizado. No começo da minha carreira, eu vivia um verdadeiro pesadelo: <strong>os cílios das minhas clientes caíam em 7 dias</strong>. Era um desastre.
+          </p>
+          <p>
+            Eu sentia um nó no estômago toda vez que o celular tocava, com medo de ser uma cliente reclamando. Eu trocava de adesivo, culpava a umidade, o clima, até a cliente... até entender que <strong>retenção não é sorte, é química e precisão</strong>.
+          </p>
+          <p>
+            Foi depois de muitos testes, noites estudando e várias frustrações que desenvolvi o <strong>Método ELO</strong>. Ele não é apenas "colar fios". É um ecossistema perfeito que liga o isolamento milimétrico, a preparação química exata do fio e o acoplamento magnético. 
+          </p>
+          <p class="font-medium text-brand-dark">
+            Foi esse método que virou o meu jogo. E agora, chegou a hora de passar esse conhecimento para você.
+          </p>
+        </div>
+        
+        <div class="grid grid-cols-2 gap-6 pt-8 mt-8 border-t border-brand-accent/20">
+          <div>
+            <h4 class="font-serif text-2xl text-brand-dark mb-1">Fundamentos</h4>
+            <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted">A base inabalável</p>
+          </div>
+          <div>
+            <h4 class="font-serif text-2xl text-brand-dark mb-1">Retenção ELO</h4>
+            <p class="text-[0.65rem] uppercase tracking-widest text-brand-muted">O diferencial técnico</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VENDAS: Os Cursos (Formação e Mentoria) -->
+  <section id="cursos" class="py-24 md:py-32 bg-brand-nude relative border-y border-brand-accent/20">
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-white/40 rounded-full blur-[120px] pointer-events-none"></div>
+
+    <div class="max-w-6xl mx-auto px-6 relative z-10">
+      <div class="text-center max-w-3xl mx-auto mb-20 reveal-up">
+        <h2 class="font-serif text-4xl md:text-[3.5rem] text-brand-dark mb-6 leading-tight">Escolha o seu nível de <br><span class="italic text-brand-accent font-light">Especialização</span></h2>
+        <p class="text-brand-muted leading-relaxed text-lg font-light">
+          Seja você uma iniciante que quer começar do jeito certo, ou uma profissional buscando o próximo nível.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        
+        <!-- CURSO 1: Formação ELO -->
+        <article class="reveal-up bg-white p-10 rounded-sm shadow-xl shadow-brand-accent/10 flex flex-col relative border border-brand-accent/10 hover:border-brand-accent hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+          <div class="absolute top-0 right-0 bg-brand-accent text-white text-[0.6rem] font-bold uppercase tracking-widest px-4 py-1">Para todas</div>
+          
+          <h3 class="font-serif text-3xl mb-2 text-brand-dark mt-4">Formação ELO</h3>
+          <p class="text-brand-accent text-sm mb-8 font-medium">Online ou VIP (Consulte formato atual)</p>
+          
+          <p class="text-brand-muted text-sm font-light leading-relaxed mb-8 flex-grow">
+            A trilha completa. Do absoluto zero ao avançado. Você vai aprender a estrutura do método, mapeamento personalizado e os segredos da preparação do fio que garantem a nossa retenção de até 60 dias.
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center gap-3 text-sm text-brand-dark/80">
+              <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Teoria da Química do Adesivo
+            </li>
+            <li class="flex items-center gap-3 text-sm text-brand-dark/80">
+              <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Isolamento e Acoplamento Perfeitos
+            </li>
+            <li class="flex items-center gap-3 text-sm text-brand-dark/80">
+              <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Mapeamento de Visagismo
+            </li>
+          </ul>
+
+          <a href="#" data-wa data-wa-text="Olá Bianca, quero informações sobre a Formação ELO (turmas/valores)." target="_blank" rel="noopener noreferrer" class="block w-full text-center py-4 text-xs uppercase tracking-widest font-bold bg-brand-accent text-white hover:bg-brand-dark transition-colors rounded-sm shadow-md">
+            Consultar Turmas e Valores
+          </a>
+        </article>
+
+        <!-- CURSO 2: Mentoria VIP -->
+        <article class="reveal-up delay-100 bg-brand-dark p-10 rounded-sm flex flex-col relative text-white border border-brand-dark hover:border-brand-accent hover:-translate-y-2 hover:shadow-2xl transition-all duration-300">
+          <div class="absolute top-0 right-0 border-b border-l border-white/20 text-white text-[0.6rem] font-bold uppercase tracking-widest px-4 py-1">Avançado</div>
+          
+          <h3 class="font-serif text-3xl mb-2 mt-4 text-white">Mentoria ELO <span class="italic text-brand-accent font-light">VIP</span></h3>
+          <p class="text-brand-accent text-sm mb-8 font-medium">Presencial · 2 Dias Intensos</p>
+          
+          <p class="text-white/80 text-sm font-light leading-relaxed mb-8 flex-grow">
+            Para a Lash que já atua, mas quer dar o salto definitivo. Você estará lado a lado comigo. Vou corrigir sua postura, seu pinçamento, e te ensinar o <strong>Upgrade Avançado de Retenção</strong> ao vivo.
+          </p>
+          
+          <ul class="space-y-4 mb-10">
+            <li class="flex items-center gap-3 text-sm text-white/90">
+              <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Prática em Modelo Viva supervisionada
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white/90">
+              <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Correção de vícios de pinçamento
+            </li>
+            <li class="flex items-center gap-3 text-sm text-white/90">
+              <svg class="w-4 h-4 text-brand-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>
+              Estratégia de Posicionamento Premium
+            </li>
+          </ul>
+
+          <a href="#" data-wa data-wa-text="Olá Bianca, sou Lash Designer e tenho interesse na Mentoria Presencial VIP." target="_blank" rel="noopener noreferrer" class="block w-full text-center py-4 text-xs uppercase tracking-widest font-bold border border-brand-accent text-brand-accent hover:bg-brand-accent hover:text-white transition-colors rounded-sm">
+            Solicitar Análise de Vaga
+          </a>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Espaço para Provas Sociais Futuras -->
+  <section class="py-24 bg-white border-b border-brand-accent/10">
+    <div class="max-w-6xl mx-auto px-6 text-center reveal-up">
+      <span class="text-[0.65rem] uppercase tracking-widest text-brand-accent font-bold mb-4 block">Resultados</span>
+      <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-12">Quem aplica o Método, <span class="italic text-brand-accent">não volta atrás.</span></h2>
+      
+      <div class="p-12 border border-dashed border-brand-accent/30 rounded-lg bg-brand-bg/50">
+        <p class="text-brand-muted text-sm uppercase tracking-[0.2em] font-light">
+          Em breve
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Focado nas Alunas -->
+  <section id="faq" class="py-24 bg-brand-bg">
+    <div class="max-w-3xl mx-auto px-6">
+
+      <div class="text-center mb-16 reveal-up">
+        <h2 class="font-serif text-3xl md:text-4xl text-brand-dark mb-4">Dúvidas Frequentes</h2>
+        <p class="text-brand-muted font-light">Tire suas dúvidas antes de garantir a sua vaga.</p>
+      </div>
+
+      <div class="space-y-4 reveal-up">
+        <details class="group bg-white p-6 border border-brand-accent/10 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Preciso já ser Lash Designer para fazer a Formação?
+            <span class="faq-icon text-brand-accent text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            Não! A "Formação ELO" foi estruturada para pegar você do absoluto zero. Você vai aprender desde a biossegurança e manuseio da pinça até o mapeamento e o método completo de retenção.
+          </div>
+        </details>
+
+        <details class="group bg-white p-6 border border-brand-accent/10 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Qual a diferença entre a Formação e a Mentoria VIP?
+            <span class="faq-icon text-brand-accent text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            A Formação abrange todo o conhecimento técnico necessário. A Mentoria VIP é um formato exclusivo (1x1 ou em micro turmas presenciais) focada em lapidar profissionais que já atuam, corrigindo vícios na prática.
+          </div>
+        </details>
+
+        <details class="group bg-white p-6 border border-brand-accent/10 shadow-sm rounded-sm">
+          <summary class="flex justify-between items-center cursor-pointer font-serif text-lg text-brand-dark">
+            Os cursos possuem certificado?
+            <span class="faq-icon text-brand-accent text-2xl font-light">+</span>
+          </summary>
+          <div class="mt-4 text-brand-muted font-light text-sm leading-relaxed pr-8">
+            Sim, ao concluir qualquer uma das trilhas (Formação ou Mentoria), você recebe o seu certificado de conclusão com a assinatura de excelência do Método ELO.
+          </div>
+        </details>
+      </div>
+
+      <div class="text-center mt-16 reveal-up">
+        <a href="#" data-wa data-wa-text="Olá! Estou com uma dúvida sobre a formação/mentoria." target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center px-8 py-4 text-xs uppercase tracking-[0.15em] font-medium bg-brand-dark text-white hover:bg-brand-accent transition-colors rounded-sm shadow-xl shadow-brand-dark/10">
+          Chamar Suporte no WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer Delicado -->
+  <footer class="bg-white pt-20 pb-10 border-t border-brand-accent/10">
+    <div class="max-w-6xl mx-auto px-6 text-center">
+
+      <div class="flex flex-col items-center mb-12">
+        <div class="logo-wrap w-20 h-20 overflow-hidden flex justify-center items-center mb-6 mix-blend-multiply">
+          <img src="" alt="Bianca Povliuk Logo" class="logo-img w-full h-full object-contain opacity-80" data-logo />
+          <span class="logo-fallback" aria-hidden="true">BP</span>
+        </div>
+        <p class="text-brand-muted font-light text-sm max-w-sm leading-relaxed mx-auto">
+          Capacitando Lash Designers a alcançarem retenção superior e faturamento através do Método ELO.
+        </p>
+      </div>
+
+      <div class="flex justify-center gap-8 mb-12">
+        <a href="#" data-ig target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-brand-dark hover:text-brand-accent transition-colors">Instagram</a>
+        <a href="#" data-wa data-wa-text="Olá Bianca!" target="_blank" rel="noopener noreferrer" class="text-xs uppercase tracking-widest font-medium text-brand-dark hover:text-brand-accent transition-colors">WhatsApp</a>
+      </div>
+
+      <div class="hairline w-full mb-8 max-w-sm mx-auto"></div>
+
+      <p class="text-[0.65rem] font-light text-brand-muted/70 uppercase tracking-widest">
+        © <span id="current-year"></span> Bianca Povliuk. Todos os direitos reservados.
+      </p>
+
+    </div>
+  </footer>
+
+  <script>
+    const cfg = window.SITE_CONFIG;
+
+    // WhatsApp: mensagem personalizada (cursos) ou link curto (geral)
+    document.querySelectorAll('[data-wa]').forEach(function (el) {
+      var text = el.getAttribute('data-wa-text');
+      if (text && cfg.whatsapp) {
+        el.href = 'https://wa.me/' + cfg.whatsapp + '?text=' + encodeURIComponent(text);
+      } else if (cfg.bookingUrl) {
+        el.href = cfg.bookingUrl;
+      } else if (cfg.whatsapp) {
+        el.href = 'https://wa.me/' + cfg.whatsapp;
+      }
+    });
+
+    document.querySelectorAll('[data-ig]').forEach(function (el) {
+      el.href = cfg.instagram;
+    });
+
+    // Configuração de Imagens (Logo e Portrait)
+    document.querySelectorAll('[data-logo]').forEach(function (img) {
+      img.src = cfg.logo;
+      img.addEventListener('error', function () {
+        var wrap = img.closest('.logo-wrap');
+        if (wrap) wrap.classList.add('is-fallback');
+      });
+    });
+
+    document.querySelectorAll('[data-portrait]').forEach(function (img) {
+      if (cfg.portrait) img.src = cfg.portrait;
+    });
+
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Efeitos de Scroll (Header)
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', function () {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-sm');
+        navbar.classList.replace('bg-brand-bg/90', 'bg-white/95');
+      } else {
+        navbar.classList.remove('shadow-sm');
+        navbar.classList.replace('bg-white/95', 'bg-brand-bg/90');
+      }
+    });
+
+    // Intersection Observer para animações Reveal
+    const revealElements = document.querySelectorAll('.reveal-up');
+    const revealObserver = new IntersectionObserver(function (entries, observer) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+    revealElements.forEach(function (el) {
+      revealObserver.observe(el);
+    });
+  </script>
+</body>
+</html>
